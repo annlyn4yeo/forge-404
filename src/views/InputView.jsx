@@ -17,7 +17,9 @@ function InputView({ onGenerate }) {
     const brand = (lines[0] || "").trim();
     const desc = lines.slice(1).join("\n").trim();
 
-    onGenerate(brand, desc, tone);
+    if (typeof onGenerate === "function") {
+      onGenerate(brand, desc, tone);
+    }
   };
 
   return (
